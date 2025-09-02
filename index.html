@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Papelaria Criativa</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Ícones Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Cabeçalho com Menu -->
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="assets/logo.png" alt="logo">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#niveis">Níveis de Ensino</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero" id="inicio">
+        <h2>Material Escolar Completo para Volta às Aulas MONTESSORI</h2>
+        <p>
+          Encontre todos os materiais necessários para o ano letivo, organizados
+          por nível de ensino e série. Facilite sua vida e garanta que seu aluno
+          tenha tudo que precisa! <br> Entregas gratis e pagamento somente na entrega!
+        </p>
+        <a href="#niveis" class="cta-button">Ver Listas de Materiais</a>
+      </section>
+
+      <!-- Níveis de Ensino -->
+      <h2 class="section-title" id="niveis">Selecione o Nível de Ensino</h2>
+      <div class="niveis-ensino">
+        <div class="nivel-card" data-nivel="maternal">
+          <div class="nivel-icon">
+            <i class="fas fa-baby"></i>
+          </div>
+          <div class="nivel-content">
+            <h3>Maternal</h3>
+            <p>Materiais adequados para a primeira fase da educação infantil</p>
+            <span class="btn-saiba-mais">Ver Séries</span>
+          </div>
+        </div>
+
+        <div class="nivel-card" data-nivel="infantil">
+          <div class="nivel-icon">
+            <i class="fas fa-child"></i>
+          </div>
+          <div class="nivel-content">
+            <h3>Infantil</h3>
+            <p>Materiais para educação infantil de 4 a 5 anos</p>
+            <span class="btn-saiba-mais">Ver Séries</span>
+          </div>
+        </div>
+
+        <div class="nivel-card" data-nivel="fundamental">
+          <div class="nivel-icon">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+          <div class="nivel-content">
+            <h3>Fundamental</h3>
+            <p>Materiais para ensino fundamental do 1º ao 9º ano</p>
+            <span class="btn-saiba-mais">Ver Séries</span>
+          </div>
+        </div>
+
+        <div class="nivel-card" data-nivel="medio">
+          <div class="nivel-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="nivel-content">
+            <h3>Médio</h3>
+            <p>Materiais especializados para ensino médio</p>
+            <span class="btn-saiba-mais">Ver Séries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção de Materiais (será preenchida dinamicamente) -->
+      <div class="materiais-container" id="materiais-container">
+        <div class="materiais-header">
+          <h2 class="materiais-title" id="materiais-title">
+            Materiais Escolares
+          </h2>
+          <a href="#" class="btn-voltar" id="btn-voltar"
+            ><i class="fas fa-arrow-left"></i> Voltar</a
+          >
+        </div>
+
+        <div class="materiais-lista" id="materiais-lista">
+          <!-- Conteúdo será preenchido via JavaScript -->
+        </div>
+
+        <div class="material-total" id="material-total">
+          Total: R$ <span id="total-value">0,00</span>
+        </div>
+
+        <a href="https://wa.me/61999524848?text=" class="btn-whatsapp" id="btn-whatsapp" target="_blank">
+          <i class="fab fa-whatsapp"></i> Fazer Pedido pelo WhatsApp
+        </a>
+      </div>
+
+      <!-- Modal para seleção de série -->
+      <div class="modal" id="modal-series">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2 class="modal-title">Selecione a Série</h2>
+          <div class="series-list" id="series-list">
+            <!-- As séries serão carregadas dinamicamente via JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Informações da Papelaria -->
+      <section class="info-papelaria" id="sobre">
+        <h2 class="section-title">Nossa Papelaria</h2>
+        <div class="info-content">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-text">
+              <h3>Onde Estamos</h3>
+              <p>Setor de mansões, QMS 06 R.17 LT 2B LJ 02 - Sobradinho II - DF</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-text">
+              <h3>Telefone</h3>
+              <p>(61) 99952-4848 | (61) 98491-1180 </p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-text">
+              <h3>E-mail</h3>
+              <p>vendas.papimpacto@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-text">
+              <h3>Horário de Funcionamento</h3>
+              <p>Segunda a sexta: 8h às 18h<br />Sábado: 9h às 16h</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Papelaria Impacto</h3>
+          <p>
+            Sua parceira em materiais escolares. Oferecemos
+            qualidade, preço justo e atendimento personalizado.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li>
+              <a href="#inicio"><i class="fas fa-angle-right"></i> Início</a>
+            </li>
+            <li>
+              <a href="#niveis"
+                ><i class="fas fa-angle-right"></i> Níveis de Ensino</a
+              >
+            </li>
+            <li>
+              <a href="#sobre"><i class="fas fa-angle-right"></i> Sobre Nós</a>
+            </li>
+            <li>
+              <a href="#contato"><i class="fas fa-angle-right"></i> Contato</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Entre em Contato</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Setor de mansões, QMS 06 R.17 LT 2B LJ 02 - Sobradinho II - DF
+          </p>
+          <p><i class="fas fa-phone"></i> (61) 99952-4848</p>
+          <p>
+            <i class="fas fa-envelope"></i> vendas.papimpacto@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Impacto Desenvolvimento - Todos os direitos reservados</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
