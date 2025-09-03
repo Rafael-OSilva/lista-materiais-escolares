@@ -1,3 +1,6 @@
+// Nome da escola
+const escolaNome = "Escola Santa Dorotéia"; // <- altere aqui para o nome da sua escola
+
 // Dados dos materiais (em formato JSON simulado)
 const materiaisData = {
   maternal: {
@@ -240,7 +243,7 @@ const totalValue = document.getElementById("total-value");
 const btnVoltar = document.getElementById("btn-voltar");
 const btnWhatsapp = document.getElementById("btn-whatsapp");
 
-// Variáveis para controle de estado
+// Variáveis de controle
 let currentNivel = "";
 let currentSerie = "";
 
@@ -257,7 +260,7 @@ closeModal.addEventListener("click", () => {
   modalSeries.style.display = "none";
 });
 
-// Fechar modal ao clicar fora dele
+// Fechar modal clicando fora
 window.addEventListener("click", (e) => {
   if (e.target === modalSeries) {
     modalSeries.style.display = "none";
@@ -270,12 +273,9 @@ btnVoltar.addEventListener("click", (e) => {
   materiaisContainer.style.display = "none";
 });
 
-// Função para abrir o modal de séries
+// Função para abrir modal com as séries
 function openSeriesModal(nivel) {
-  // Limpar lista anterior
   seriesList.innerHTML = "";
-
-  // Adicionar séries disponíveis para o nível
   const series = Object.keys(materiaisData[nivel]);
 
   series.forEach((serie) => {
@@ -289,23 +289,17 @@ function openSeriesModal(nivel) {
     seriesList.appendChild(serieItem);
   });
 
-  // Mostrar modal
   modalSeries.style.display = "flex";
 }
 
 // Função para mostrar os materiais
 function showMateriais(nivel, serie) {
   currentSerie = serie;
-
-  // Atualizar título
   materiaisTitle.textContent = `Materiais - ${serie} (${capitalizeFirstLetter(
     nivel
   )})`;
 
-  // Limpar lista anterior
   materiaisLista.innerHTML = "";
-
-  // Adicionar materiais
   const materials = materiaisData[nivel][serie].items;
 
   materials.forEach((material) => {
@@ -336,45 +330,37 @@ function showMateriais(nivel, serie) {
     materiaisLista.appendChild(materialItem);
   });
 
-  // Atualizar total
+  // Total
   const total = materiaisData[nivel][serie].total;
   totalValue.textContent = total.toFixed(2);
 
-  // Configurar link do WhatsApp
-  const message = `Olá! Gostaria de encomendar os materiais escolares para ${serie} - ${capitalizeFirstLetter(
+  // WhatsApp link (agora com nome da escola)
+  const message = `Olá! Gostaria de encomendar os materiais escolares para a ${escolaNome}, ${serie} - ${capitalizeFirstLetter(
     nivel
   )}.`;
   btnWhatsapp.href = `https://wa.me/61999524848?text=${encodeURIComponent(
     message
   )}`;
 
-  // Mostrar container de materiais
   materiaisContainer.style.display = "block";
-
-  // Scroll para a seção de materiais
   materiaisContainer.scrollIntoView({ behavior: "smooth" });
 }
 
-// Função auxiliar para capitalizar a primeira letra
+// Função para capitalizar
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// Inicialização
+// Smooth scroll
 document.addEventListener("DOMContentLoaded", () => {
-  // Adicionar smooth scrolling para links internos
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-
       const targetId = this.getAttribute("href");
       if (targetId === "#") return;
-
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
